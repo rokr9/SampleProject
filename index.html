@@ -31,6 +31,36 @@
 			<option value="1">Option 1</option>
 			<option value="2">Option 2</option>
 			<option value="3">Option 3</option>
-		</select>
+		</select><hr>
+		<form action="sample.html">
+			<fieldset>
+				<legend>Personal details</legend>
+				First Name: <input type="text" id="fname" name="first name" placeholder="First Name" maxlength=5><br>
+				Last Name: <input type="text" id="lname" name="last name" placeholder="Last Name"><br>
+				Password: <input type="Password" name="pwd">
+				Numbers only: <input  type="number" name="num" min=1 max=15>
+				Qty: <input  type="number" name="qty" min=0 max=60 step=5 value=10>
+				Date: <input type="date" name="todays_date">
+				Time: <input type="time" name="todays_time">
+				Email: <input type="email">
+				<textarea name="sample" rows= 2 columns= 40></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>Color Values</legend>
+				<input type="checkbox" value="Red" name="color-chooser"> Red
+				<input type="checkbox" value="Blue" name="color-chooser"> Blue <br>
+				<input type="radio" value="Red" name="color-chooser" checked> Red
+				<input type="radio" value="green" name="color-chooser"> Green <br>
+				<input type="submit" value="submit">
+				<input type="button" onclick="alert()">
+				<input list="names" name="listnames"> 
+				<datalist id="names">
+					<option value="John"></option>
+					<option value="Steve"></option>
+					<option value="max"></option>
+				</datalist>	
+				<input type="submit"> 
+			</fieldset>	
+		</form>
 	</body>
 </html>
