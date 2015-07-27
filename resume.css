@@ -1,0 +1,42 @@
+*{
+	font-family:Helvetica;
+	font-size: 20px;
+}
+body{
+	line-height: 150%;
+	background: #E0E6D6;	
+}
+.main_body{
+	position: relative;
+	left:150px;
+	top:150px;
+}
+.heading{
+	
+	top:0;
+	left:0;
+	margin:0 auto;
+	text-shadow: 1px 1px 3px #666666;
+	background-color: #FFD6CC;
+	width:100%;
+	position: fixed;
+	z-index:10;
+	padding:10px;
+	
+}
+h1, h3{
+	font-family: serif;
+}
+.name{
+	text-align:center;
+	font-size:40px;
+}
+.location{
+	text-align:center;
+}
+.list{
+	list-style-type: square;
+}
+#email:hover{
+	color:orange;
+}
