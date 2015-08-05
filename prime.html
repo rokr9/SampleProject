@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<p>
+			Please Enter the number: <input type="text" id="prime">
+		</p>
+		<button id="cal">Check</button>
+		<p id="output"></p>
+		<script>
+			function prime(){
+				var a = parseInt(document.getElementById('prime').value);
+				document.getElementById('output').innerHTML='';
+				for(var i=2; i<a; i++){
+					if(a%i === 0){
+						document.getElementById('output').innerHTML = "Not a prime number";
+					}
+				}
+
+			}
+			document.getElementById('cal').addEventListener('click', prime);	
+		</script>
+	</body>
+</html>

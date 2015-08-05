@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>String reverse</title>
+	</head>
+	<body>
+		Enter a string <input type="text" name="year" id="line">
+		<button id="myBtn">Change</button>
+		<p id="show"></p>
+		<script>
+			function reverse(){
+				var a = document.getElementById('line').value;
+				var b = a.split("").reverse().join("");
+				document.getElementById('show').innerHTML = b;
+			}
+			document.getElementById('myBtn').addEventListener('click', reverse);
+		</script>
+	</body>
+</html>

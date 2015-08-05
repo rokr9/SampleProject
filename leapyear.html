@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Leap Year
+		</title>
+
+	</head>
+	<body>
+		<p>
+			Enter the year:<input type="text" name="year" id="leap">
+		</p>
+		<button id="press" >Check</button> <hr />
+		<div id="year">	
+		</div>
+		<script>
+			function calculate(){
+				var a = parseInt(document.getElementById('leap').value);
+				if((a%4 === 0 && a%100 != 0)|| a%400===0){
+					document.getElementById('year').innerHTML = "It's a leap year."
+				}
+				else {
+					document.getElementById('year').innerHTML = "It's not a leap year."
+				}
+			}	
+			document.getElementById('press').addEventListener('click',calculate);
+		</script>
+	</body>
+</html>

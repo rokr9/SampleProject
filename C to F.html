@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>C to F</title>
+	</head>
+	<body>
+		<p>
+			Enter the temperature in Celsius: <input type="text" id="temp">
+		</p>
+		<button id="myBtn">Convert</button>
+		<p id="far"></p>
+		<script type="text/javascript">
+			function convert(){
+				var cel = parseInt(document.getElementById('temp').value);
+				document.getElementById('far').innerHTML = (cel*2)+30;
+			}
+			document.getElementById('myBtn').addEventListener('click', convert)	
+		</script>
+	</body>
+</html>
