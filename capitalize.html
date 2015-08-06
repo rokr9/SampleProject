@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Capitalize second letter</title>
+</head>
+<body>
+	<p>
+		Enter a string: <input type="text" id="line">
+	</p>
+	<button id="myBtn">Change</button>
+	<p id="show"></p>
+	<script type="text/javascript">
+		function capitalize(){
+			var a = document.getElementById('line').value;
+			var b = a.charAt(1).toUpperCase(); 
+			document.getElementById('show').innerHTML = a.charAt(0)+b+a.slice(2);
+		}
+		document.getElementById('myBtn').addEventListener('click', capitalize);
+	</script>
+</body>
+</html>
