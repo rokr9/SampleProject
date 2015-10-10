@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app = "dirApp">
+<head>
+	<title></title>
+	<script src="angular.js"></script>
+	<link rel="stylesheet" href="bootstrap.css" />
+	<link rel="stylesheet" href="bootstrap-theme.css" />
+	<script>
+		var myApp = angular.module("dirApp", []).controller("dirCtrl", function($scope){
+			$scope.todoList =
+			[{Action:"Groceries", Done: true},
+			{Action:"Shopping", Done:false },
+			{Action:"shipping", Done: false},
+			{Action:"play", Done: true},
+			{Action:"email", Done: false}];
+			$scope.viewFile = function(){
+				return $scope.showList ? "list.html": "table.html";
+			};
+		});
+	</script>
+	<style>
+		.odd{background-color: lightblue}
+		.even{background-color: lightgreen}
+	</style>
+</head>
+<body>
+	<div class="panel" ng-controller="dirCtrl">
+		<h2 class="panel-header">To Do List</h2>
+		<label>
+		<input type="checkbox" ng-model="showList">
+		showlist
+		</label>
+		<ng-include src="viewFile()"></ng-include>
+	</div>
+		
+</body>
+</html>

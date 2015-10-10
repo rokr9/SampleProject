@@ -1,0 +1,16 @@
+<table  class="table">
+	<thead>
+		<tr>
+			<th>index</th>
+			<th>Name</th>
+			<th>Done</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = "item in todoList" ng-class = "$odd ? 'odd': 'even'">
+			<td>{{$index+1}}</td>
+			<td>{{item.Action}}</td>
+			<td><span ng-if="$first || $last"> {{item.Done}}</span></td>
+		</tr>
+	</tbody>	
+</table>

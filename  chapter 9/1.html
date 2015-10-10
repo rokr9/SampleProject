@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app = "exApp">
+    <head>
+        <script src= "angular.js"></script>
+        <link rel="stylesheet" href="bootstrap.css" />
+        <link rel="stylesheet" href="bootstrap-theme.css" />
+        <script>
+            angular.module("exApp", []).controller("exCtrl", function($scope, $http){
+    
+            $scope.len = 7;
+    
+            $http.get("http://rest.learncode.academy/api/learncode/friends").success(function(data){
+                $scope.list = data; }).error(function(){ return "No data";});
+            });
+        </script>
+    </head>
+    <body ng-controller="exCtrl">
+        <div>
+            <table class=" table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>DRINK</th>
+                    <th>ID</th>
+                </tr>
+                </thead>
+            <tbody>
+                <tr ng-repeat = "item in list">
+                    <td>{{item.name}}</td>
+                    <td>{{item.drink}}</td>
+                    <td>{{item.id}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app = "dirApp">
+<head>
+	<title></title>
+	<script src="angular.js"></script>
+	<link rel="stylesheet" href="bootstrap.css" />
+	<link rel="stylesheet" href="bootstrap-theme.css" />
+	<script>
+		var myApp = angular.module("dirApp", []).controller("dirCtrl", function($scope){
+			$scope.todoList =
+			[{Action:"Groceries", Done: true},
+			{Action:"Shopping", Done:false },
+			{Action:"shipping", Done: false},
+			{Action:"play", Done: true},
+			{Action:"email", Done: false}];
+		});
+	</script>
+	<style>
+		.odd{background-color: lightblue}
+		.even{background-color: lightgreen}
+	</style>
+</head>
+<body>
+	<div class="panel" ng-controller="dirCtrl">
+		<h2 class="panel-header">To Do List</h2>
+		<table  class="table">
+		
+	
+		<tr ng-repeat-start = "item in todoList">
+			<td>{{$index}}</td>
+		</tr>
+		<tr>
+			<td>The action {{item.Action}}</td>
+		</tr>
+		<tr ng-repeat-end>
+			<td>{{$index}} is {{item.Done?'': "not"}} complete</td>
+		</tr>
+
+		</table>
+	</div>
+</body>
+</html>

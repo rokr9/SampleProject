@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+	<head>
+		<title>
+			zip codes
+		</title>
+		<script src="angular.js"></script>
+		<link rel="stylesheet" href="bootstrap.css" />
+		<link rel="stylesheet" href="bootstrap-theme.css" />
+		<script>
+			angular.module("myApp", []).controller("myCtrl", function($scope){
+				$scope.products = [
+				{zip : 64063, city: "War"},
+				{zip : 64063, city: "Jeb"},
+				{zip:64063, city:"Mar"},
+				{zip:88990, city:"Juy"},
+				{zip:88990, city:"Juls"}];
+			}).filter("myFilter", function(){
+				return function(data){
+					var zips = [];
+					var keys = {};
+					for(var i=0;i<data.length;i++){
+						var val = data[i][zip];
+						if(angular.isUndefined(keys[val])){
+							keys[val] = true;
+							zips.push(val);
+						}
+					} return zips;
+				}
+			});
+		</script>
+	</head>
+	<body ng-controller = "myCtrl">
+		<div class="panel">
+			<div class="panel-head">
+				<select class="form-control" ng-model="balh" ng-options="item.city group by item.zip for item in products"></select>
+			</div>
+		</div>
+	</body>
+</html>

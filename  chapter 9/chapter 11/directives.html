@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app = "dirApp">
+<head>
+	<title></title>
+	<script src="angular.js"></script>
+	<link rel="stylesheet" href="bootstrap.css" />
+	<link rel="stylesheet" href="bootstrap-theme.css" />
+	<script>
+		var myApp = angular.module("dirApp", []).controller("dirCtrl", function($scope){
+			$scope.todoList =
+			[{Action:"Groceries", Done: true},
+			{Action:"Shopping", Done:false },
+			{Action:"shipping", Done: false},
+			{Action:"play", Done: true},
+			{Action:"email", Done: false}];
+		});
+	</script>
+	<style>
+		td>*:first-child { font-weight: bold;}
+		.odd {background-color: lightgreen;}
+		.even{background-color: skyblue;}
+	</style>
+</head>
+<body>
+	<div class="panel" ng-controller="dirCtrl">
+		<h2 class="panel-header">To Do List</h2>
+		<div class="checkbox well">
+			<label>
+				<input type="checkbox" ng-model="todoList[2].Done"/> Item 3 is complete
+			</label>
+		</div>
+		<table  class="table">
+		<thead>
+		<tr>
+			<th>index</th>
+			<th>Name</th>
+			<th>Done</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = "item in todoList" ng-class = "$odd ? 'odd': 'even'">
+			<td>{{$index+1}}</td>
+			<td>{{item.Action}}</td>
+			<td><span ng-hide="item.Done">(Incomplete)</span>
+				<span ng-show="item.Done">(Done)</span>
+			</td>
+		</tr>
+	</tbody>	
+		</table>
+	</div>
+</body>
+</html>

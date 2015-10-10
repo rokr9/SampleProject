@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app = "dirApp">
+<head>
+	<title></title>
+	<script src="angular.js"></script>
+	<link rel="stylesheet" href="bootstrap.css" />
+	<link rel="stylesheet" href="bootstrap-theme.css" />
+	<script>
+		var myApp = angular.module("dirApp", []).controller("dirCtrl", function($scope){
+			$scope.todoList =
+			[{Action:"Groceries", Done: true},
+			{Action:"Shopping", Done:false },
+			{Action:"shipping", Done: false},
+			{Action:"play", Done: true},
+			{Action:"email", Done: false}];
+			$scope.buttonList=["Red", "Green", "Blue"];
+			$scope.settings={
+				Rows: "Red",
+				Columns: "Green"
+			};
+		});
+
+	</script>
+	<style>
+		tr.Red{background-color: lightcoral;}
+		tr.Green{background-color: lightgreen;}
+		tr.Blue{background-color: skyblue;}
+	</style>
+		
+</head>
+<body>
+	<div class="panel" ng-controller="dirCtrl">
+		<h2 class="panel-header">To Do List</h2>
+		<div class="row well">
+			<div class="col-xs-6" ng-repeat="(key,val) in settings">
+				<h4>{{key}}</h4>
+					<div class="radio" ng-repeat="button in buttonList">
+						<label>
+							<input type="radio" ng-model="settings[key]" value="{{button}}" />{{button}}
+						</label>
+					</div>	
+			</div>
+		</div>
+		<table  class="table">
+		<thead>
+		<tr>
+			<th>index</th>
+			<th>Name</th>
+			<th>Done</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = "item in todoList" ng-class = "settings.Rows">
+			<td>{{$index+1}}</td>
+			<td>{{item.Action}}</td>
+			<td ng-style="{'background-color':settings.Columns}">
+				{{item.Done}}
+			</td>
+		</tr>
+		<tr ng-repeat = "item in todoList" ng-class-odd = "settings.Rows" ng-class-even="settings.columns">
+			<td>{{$index+1}}</td>
+			<td>{{item.Action}}</td>
+			<td>
+				{{item.Done}}
+			</td>
+		</tr>
+	</tbody>	
+		</table>
+	</div>
+</body>
+</html>
